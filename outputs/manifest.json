@@ -1,0 +1,112 @@
+{
+ "time": "2026-09-29 16:25:36",
+ "smoke": false,
+ "gpu": "GPU 0: NVIDIA RTX PRO 6000 Blackwell Server Edition (UUID: GPU-455cc7c5-1cab-29c6-3f7b-68600e0f5062)\nGPU 1: NVIDIA RTX PRO 6000 Blackwell Server Edition (UUID: GPU-b7e03695-8c12-68ba-f353-b0e61367877d)\nGPU 2: NVIDIA RTX PRO 6000 Blackwell Server Edition (UUID: GPU-d5fb7d85-074f-f830-23e1-b3e32c1a6980)\nGPU 3: NVIDIA RTX PRO 6000 Blackwell Server Edition (UUID: GPU-742d5daf-8a6d-2bcd-d58a-563c1a3a69b2)\n  MIG 2g.48gb     Device  0: (UUID: MIG-7a6b1b03-0955-5be4-860d-7f568867a1c9)",
+ "ollama_version": "0.33.2",
+ "temperature": 1.0,
+ "models": [
+  {
+   "name": "embeddinggemma:latest",
+   "digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+   "size": 621875917,
+   "details": {
+    "parent_model": "embeddinggemma:300m-bf16",
+    "format": "gguf",
+    "family": "gemma3",
+    "families": [
+     "gemma3"
+    ],
+    "parameter_size": "307.58M",
+    "quantization_level": "BF16",
+    "context_length": 2048,
+    "embedding_length": 768
+   }
+  },
+  {
+   "name": "gemma3:27b",
+   "digest": "a418f5838eaf7fe2cfe0a3046c8384b68ba43a4435542c942f9db00a5f342203",
+   "size": 17396936941,
+   "details": {
+    "parent_model": "",
+    "format": "gguf",
+    "family": "gemma3",
+    "families": [
+     "gemma3"
+    ],
+    "parameter_size": "27.4B",
+    "quantization_level": "Q4_K_M"
+   }
+  },
+  {
+   "name": "SpeakLeash/bielik-11b-v3.0-instruct:Q4_K_M",
+   "digest": "2a22034adb282437c371d255a687427a62a32ef3ee77c2b516ac85e9cf14b7f9",
+   "size": 6724052963,
+   "details": {
+    "parent_model": "E:\\GitHub\\SpeakLeash_PL_DATA\\OLLAMA\\models\\blobs\\sha256-c16841621efe93c7c8ebf1b374709a96276f3741e649f83ed90131a7b5ad23a8",
+    "format": "gguf",
+    "family": "llama",
+    "families": [
+     "llama"
+    ],
+    "parameter_size": "11.2B",
+    "quantization_level": "Q4_K_M",
+    "context_length": 32768,
+    "embedding_length": 4096
+   }
+  },
+  {
+   "name": "gemma3:12b",
+   "digest": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+   "size": 8149190253,
+   "details": {
+    "parent_model": "",
+    "format": "gguf",
+    "family": "gemma3",
+    "families": [
+     "gemma3"
+    ],
+    "parameter_size": "12.2B",
+    "quantization_level": "Q4_K_M"
+   }
+  },
+  {
+   "name": "qwen2.5:14b",
+   "digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+   "size": 8988124069,
+   "details": {
+    "parent_model": "",
+    "format": "gguf",
+    "family": "qwen2",
+    "families": [
+     "qwen2"
+    ],
+    "parameter_size": "14.8B",
+    "quantization_level": "Q4_K_M",
+    "context_length": 32768,
+    "embedding_length": 5120
+   }
+  },
+  {
+   "name": "qwen2.5:0.5b",
+   "digest": "a8b0c51577010a279d933d14c2a8ab4b268079d44c5c8830c0a93900f1827c67",
+   "size": 397821319,
+   "details": {
+    "parent_model": "",
+    "format": "gguf",
+    "family": "qwen2",
+    "families": [
+     "qwen2"
+    ],
+    "parameter_size": "494.03M",
+    "quantization_level": "Q4_K_M",
+    "context_length": 32768,
+    "embedding_length": 896
+   }
+  }
+ ],
+ "counts": {
+  "coded.jsonl": 1450,
+  "silicon.jsonl": 600,
+  "embeddings.jsonl": 1050
+ }
+}

@@ -1,0 +1,665 @@
+{
+ "n_coded": 1450,
+ "parse_errors": 0,
+ "validation": {
+  "n": 200,
+  "domains": {
+   "governance": {
+    "gold_rate": 0.505,
+    "coder_rate": 0.545,
+    "f1": 0.8857142857142857,
+    "kappa_coder_gold": 0.7597838054248823,
+    "kappa_human_human": 0.7404153354632588,
+    "kappa_pl_vs_en_coding": 0.839855870283255
+   },
+   "values": {
+    "gold_rate": 0.565,
+    "coder_rate": 0.595,
+    "f1": 0.9137931034482759,
+    "kappa_coder_gold": 0.7949348918281555,
+    "kappa_human_human": 0.8273410522039407,
+    "kappa_pl_vs_en_coding": 0.8524296405607675
+   },
+   "outcome": {
+    "gold_rate": 0.22,
+    "coder_rate": 0.175,
+    "f1": 0.6329113924050633,
+    "kappa_coder_gold": 0.5440251572327044,
+    "kappa_human_human": 0.5978552278820375,
+    "kappa_pl_vs_en_coding": 0.7868852459016394
+   },
+   "nonresponse": {
+    "gold_rate": 0.085,
+    "coder_rate": 0.04,
+    "f1": 0.64,
+    "kappa_coder_gold": 0.6192893401015228,
+    "kappa_human_human": 0.8641765704584038,
+    "kappa_pl_vs_en_coding": 0.9307479224376732
+   }
+  },
+  "macro_f1": 0.7681046953919063,
+  "valence_acc": 0.88,
+  "valence_kappa": 0.7558742752517547,
+  "valence_kappa_human_human": 0.595264595770515
+ },
+ "descriptives": {
+  "real_pl": {
+   "n": 150,
+   "n_coded": 150,
+   "words_mean": 7.086666666666667,
+   "words_median": 5.0,
+   "share_le3_words": 0.4,
+   "share_governance": 0.5066666666666667,
+   "share_values": 0.5666666666666667,
+   "share_outcome": 0.21333333333333335,
+   "share_nonresponse": 0.04666666666666667,
+   "share_other": 0.013333333333333334,
+   "val_positive": 0.6133333333333333,
+   "val_negative": 0.11333333333333333,
+   "val_neutral": 0.20666666666666667,
+   "val_mixed": 0.02,
+   "val_none": 0.04666666666666667
+  },
+  "real_pl_all300": {
+   "n": 300,
+   "n_coded": 300,
+   "words_mean": 7.183333333333334,
+   "words_median": 5.0,
+   "share_le3_words": 0.37666666666666665,
+   "share_governance": 0.5566666666666666,
+   "share_values": 0.5333333333333333,
+   "share_outcome": 0.17666666666666667,
+   "share_nonresponse": 0.04,
+   "share_other": 0.02666666666666667,
+   "val_positive": 0.6133333333333333,
+   "val_negative": 0.08666666666666667,
+   "val_neutral": 0.23666666666666666,
+   "val_mixed": 0.023333333333333334,
+   "val_none": 0.04
+  },
+  "silicon_bielik_en": {
+   "n": 150,
+   "n_coded": 150,
+   "words_mean": 67.59333333333333,
+   "words_median": 66.0,
+   "share_le3_words": 0.0,
+   "share_governance": 0.96,
+   "share_values": 0.7933333333333333,
+   "share_outcome": 0.8866666666666667,
+   "share_nonresponse": 0.006666666666666667,
+   "share_other": 0.006666666666666667,
+   "val_positive": 0.37333333333333335,
+   "val_negative": 0.0,
+   "val_neutral": 0.12,
+   "val_mixed": 0.5066666666666667,
+   "val_none": 0.0
+  },
+  "silicon_bielik_pl": {
+   "n": 150,
+   "n_coded": 150,
+   "words_mean": 64.9,
+   "words_median": 65.0,
+   "share_le3_words": 0.0,
+   "share_governance": 1.0,
+   "share_values": 0.8333333333333334,
+   "share_outcome": 0.9533333333333334,
+   "share_nonresponse": 0.0,
+   "share_other": 0.0,
+   "val_positive": 0.30666666666666664,
+   "val_negative": 0.02666666666666667,
+   "val_neutral": 0.006666666666666667,
+   "val_mixed": 0.66,
+   "val_none": 0.0
+  },
+  "silicon_gemma_en": {
+   "n": 150,
+   "n_coded": 150,
+   "words_mean": 73.80666666666667,
+   "words_median": 74.0,
+   "share_le3_words": 0.0,
+   "share_governance": 0.96,
+   "share_values": 0.7133333333333334,
+   "share_outcome": 0.9333333333333333,
+   "share_nonresponse": 0.0,
+   "share_other": 0.0,
+   "val_positive": 0.16,
+   "val_negative": 0.14666666666666667,
+   "val_neutral": 0.18,
+   "val_mixed": 0.5133333333333333,
+   "val_none": 0.0
+  },
+  "silicon_gemma_pl": {
+   "n": 150,
+   "n_coded": 150,
+   "words_mean": 54.1,
+   "words_median": 52.0,
+   "share_le3_words": 0.0,
+   "share_governance": 0.9,
+   "share_values": 0.86,
+   "share_outcome": 0.8933333333333333,
+   "share_nonresponse": 0.006666666666666667,
+   "share_other": 0.0,
+   "val_positive": 0.2733333333333333,
+   "val_negative": 0.07333333333333333,
+   "val_neutral": 0.05333333333333334,
+   "val_mixed": 0.6,
+   "val_none": 0.0
+  },
+  "real_us": {
+   "n": 150,
+   "n_coded": 150,
+   "words_mean": 8.746666666666666,
+   "words_median": 5.0,
+   "share_le3_words": 0.36666666666666664,
+   "share_governance": 0.5133333333333333,
+   "share_values": 0.4866666666666667,
+   "share_outcome": 0.26666666666666666,
+   "share_nonresponse": 0.08666666666666667,
+   "share_other": 0.02666666666666667,
+   "val_positive": 0.5666666666666667,
+   "val_negative": 0.11333333333333333,
+   "val_neutral": 0.22666666666666666,
+   "val_mixed": 0.013333333333333334,
+   "val_none": 0.08
+  }
+ },
+ "split_half_real_pl": {
+  "mean": 0.006444124573928963,
+  "p95": 0.014853877914337038
+ },
+ "jsd": {
+  "silicon_bielik_en": {
+   "vs_real_pl": {
+    "jsd": 0.04434142110782606,
+    "ci": [
+     0.026081466262481263,
+     0.07436230531223542
+    ]
+   },
+   "vs_real_us": {
+    "jsd": 0.0456667095435452,
+    "ci": [
+     0.024183635374771945,
+     0.07683544837100413
+    ]
+   }
+  },
+  "silicon_bielik_pl": {
+   "vs_real_pl": {
+    "jsd": 0.054780103331492816,
+    "ci": [
+     0.034545935344961094,
+     0.08189377839103097
+    ]
+   },
+   "vs_real_us": {
+    "jsd": 0.05787015116154248,
+    "ci": [
+     0.0358952282300003,
+     0.08628941250641448
+    ]
+   }
+  },
+  "silicon_gemma_en": {
+   "vs_real_pl": {
+    "jsd": 0.06220862157165247,
+    "ci": [
+     0.03987870693496852,
+     0.09294402568914305
+    ]
+   },
+   "vs_real_us": {
+    "jsd": 0.06272024926451833,
+    "ci": [
+     0.03959214480469762,
+     0.08845766849176889
+    ]
+   }
+  },
+  "silicon_gemma_pl": {
+   "vs_real_pl": {
+    "jsd": 0.045746607501190945,
+    "ci": [
+     0.026649143072808436,
+     0.07355034961664628
+    ]
+   },
+   "vs_real_us": {
+    "jsd": 0.049719047533084246,
+    "ci": [
+     0.02783618086729238,
+     0.07731577745526122
+    ]
+   }
+  },
+  "real_us": {
+   "vs_real_pl": {
+    "jsd": 0.007512155935780898,
+    "ci": [
+     0.00256889127092434,
+     0.033452035503076114
+    ]
+   }
+  }
+ },
+ "h2_language_effect": {
+  "bielik_real_pl": {
+   "n": 150,
+   "jsd_en_minus_jsd_pl": -0.010438682223666756,
+   "ci": [
+    -0.019968058834995188,
+    0.002802974457247713
+   ]
+  },
+  "bielik_real_us": {
+   "n": 150,
+   "jsd_en_minus_jsd_pl": -0.01220344161799728,
+   "ci": [
+    -0.025537666967355873,
+    0.0014286445750067416
+   ]
+  },
+  "gemma_real_pl": {
+   "n": 150,
+   "jsd_en_minus_jsd_pl": 0.016462014070461523,
+   "ci": [
+    0.004989917952193145,
+    0.02871752350630422
+   ]
+  },
+  "gemma_real_us": {
+   "n": 150,
+   "jsd_en_minus_jsd_pl": 0.013001201731434084,
+   "ci": [
+    0.0026481858436954533,
+    0.02269899096434948
+   ]
+  }
+ },
+ "edu_gap_high_minus_low": {
+  "real_pl": {
+   "governance": -0.04444444444444445,
+   "values": 0.08333333333333326,
+   "outcome": -0.005555555555555564,
+   "nonresponse": -0.03333333333333333,
+   "other": -0.005555555555555555
+  },
+  "real_pl_all300": {
+   "governance": -0.08018609742747673,
+   "values": 0.09852216748768472,
+   "outcome": 0.05829228243021348,
+   "nonresponse": -0.013136288998357962,
+   "other": -0.008757525998905308
+  },
+  "silicon_bielik_en": {
+   "governance": -0.03888888888888886,
+   "values": 0.12777777777777777,
+   "outcome": -0.04999999999999993,
+   "nonresponse": -0.016666666666666666,
+   "other": -0.016666666666666666
+  },
+  "silicon_bielik_pl": {
+   "governance": 0.0,
+   "values": 0.25,
+   "outcome": -0.04999999999999993,
+   "nonresponse": 0.0,
+   "other": 0.0
+  },
+  "silicon_gemma_en": {
+   "governance": 0.0722222222222223,
+   "values": 0.3277777777777777,
+   "outcome": 0.02777777777777779,
+   "nonresponse": 0.0,
+   "other": 0.0
+  },
+  "silicon_gemma_pl": {
+   "governance": -0.08333333333333326,
+   "values": 0.2666666666666667,
+   "outcome": -0.12222222222222223,
+   "nonresponse": -0.016666666666666666,
+   "other": 0.0
+  }
+ },
+ "individual_agreement": {
+  "silicon_bielik_en": {
+   "governance": {
+    "acc": 0.5333333333333333,
+    "kappa": 0.055075593952483806
+   },
+   "values": {
+    "acc": 0.5333333333333333,
+    "kappa": -0.012536162005785905
+   },
+   "outcome": {
+    "acc": 0.26,
+    "kappa": -0.025372582830397835
+   },
+   "nonresponse": {
+    "acc": 0.9466666666666667,
+    "kappa": -0.011804384485667629
+   }
+  },
+  "silicon_bielik_pl": {
+   "governance": {
+    "acc": 0.5066666666666667,
+    "kappa": 0.0
+   },
+   "values": {
+    "acc": 0.5733333333333334,
+    "kappa": 0.06341463414634162
+   },
+   "outcome": {
+    "acc": 0.24666666666666667,
+    "kappa": 0.008655983155924654
+   },
+   "nonresponse": {
+    "acc": 0.9533333333333334,
+    "kappa": 0.0
+   }
+  },
+  "silicon_gemma_en": {
+   "governance": {
+    "acc": 0.5066666666666667,
+    "kappa": 0.001079913606911553
+   },
+   "values": {
+    "acc": 0.5466666666666666,
+    "kappa": 0.038642789820923486
+   },
+   "outcome": {
+    "acc": 0.25333333333333335,
+    "kappa": 0.0023752969121139996
+   },
+   "nonresponse": {
+    "acc": 0.9533333333333334,
+    "kappa": 0.0
+   }
+  },
+  "silicon_gemma_pl": {
+   "governance": {
+    "acc": 0.5266666666666666,
+    "kappa": 0.043126684636118344
+   },
+   "values": {
+    "acc": 0.5466666666666666,
+    "kappa": -0.0029498525073747978
+   },
+   "outcome": {
+    "acc": 0.26666666666666666,
+    "kappa": -0.01078167115902966
+   },
+   "nonresponse": {
+    "acc": 0.9466666666666667,
+    "kappa": -0.011804384485667629
+   }
+  }
+ },
+ "lexical_markers": {
+  "real_pl": {
+   "elections/voting": 0.22666666666666666,
+   "freedom": 0.37333333333333335,
+   "equality": 0.12,
+   "law/rights": 0.24,
+   "majority/people": 0.29333333333333333,
+   "corruption/negative": 0.013333333333333334
+  },
+  "real_pl_all300": {
+   "elections/voting": 0.25,
+   "freedom": 0.33,
+   "equality": 0.13333333333333333,
+   "law/rights": 0.25,
+   "majority/people": 0.3233333333333333,
+   "corruption/negative": 0.013333333333333334
+  },
+  "silicon_bielik_en": {
+   "elections/voting": 0.4,
+   "freedom": 0.44666666666666666,
+   "equality": 0.3333333333333333,
+   "law/rights": 0.5666666666666667,
+   "majority/people": 0.6533333333333333,
+   "corruption/negative": 0.006666666666666667
+  },
+  "silicon_bielik_pl": {
+   "elections/voting": 0.9666666666666667,
+   "freedom": 0.66,
+   "equality": 0.4,
+   "law/rights": 0.92,
+   "majority/people": 0.9466666666666667,
+   "corruption/negative": 0.02666666666666667
+  },
+  "silicon_gemma_en": {
+   "elections/voting": 0.4866666666666667,
+   "freedom": 0.2,
+   "equality": 0.0,
+   "law/rights": 0.25333333333333335,
+   "majority/people": 0.54,
+   "corruption/negative": 0.013333333333333334
+  },
+  "silicon_gemma_pl": {
+   "elections/voting": 0.7,
+   "freedom": 0.6066666666666667,
+   "equality": 0.04666666666666667,
+   "law/rights": 0.5866666666666667,
+   "majority/people": 0.6866666666666666,
+   "corruption/negative": 0.02666666666666667
+  },
+  "real_us": {
+   "elections/voting": 0.17333333333333334,
+   "freedom": 0.22666666666666666,
+   "equality": 0.06,
+   "law/rights": 0.09333333333333334,
+   "majority/people": 0.20666666666666667,
+   "corruption/negative": 0.013333333333333334
+  },
+  "real_pl_machine_translated_en": {
+   "elections/voting": 0.13333333333333333,
+   "freedom": 0.38,
+   "equality": 0.16,
+   "law/rights": 0.16,
+   "majority/people": 0.2866666666666667,
+   "corruption/negative": 0.006666666666666667
+  }
+ },
+ "type_diversity_equal_budget": {
+  "real_pl": {
+   "token_budget": 1071,
+   "types": 485.0
+  },
+  "silicon_bielik_pl": {
+   "token_budget": 1071,
+   "types": 360.675
+  },
+  "silicon_gemma_pl": {
+   "token_budget": 1071,
+   "types": 422.885
+  },
+  "silicon_bielik_en": {
+   "token_budget": 1328,
+   "types": 355.56
+  },
+  "silicon_gemma_en": {
+   "token_budget": 1328,
+   "types": 331.82
+  },
+  "real_us": {
+   "token_budget": 1328,
+   "types": 405.0
+  }
+ },
+ "embedding_homogeneity": {
+  "real_pl": {
+   "n": 150,
+   "mean_pairwise_cosine": 0.4615133378416879
+  },
+  "real_pl_all300": {
+   "n": 300,
+   "mean_pairwise_cosine": 0.4552072518735775
+  },
+  "silicon_bielik_en": {
+   "n": 150,
+   "mean_pairwise_cosine": 0.6960477207203075
+  },
+  "silicon_bielik_pl": {
+   "n": 150,
+   "mean_pairwise_cosine": 0.827140772825974
+  },
+  "silicon_gemma_en": {
+   "n": 150,
+   "mean_pairwise_cosine": 0.6983344208197229
+  },
+  "silicon_gemma_pl": {
+   "n": 150,
+   "mean_pairwise_cosine": 0.70329335962259
+  },
+  "real_us": {
+   "n": 150,
+   "mean_pairwise_cosine": 0.4287293563809058
+  }
+ },
+ "examples": [
+  {
+   "respondent_id": 11838839923,
+   "edu": "high",
+   "gender": "male",
+   "age": 58,
+   "real": "wolność w ogólnym znaczeniu bez ograniczeń rządowych",
+   "real_en": "freedom in general without governmental restrictions",
+   "silicon_gemma_en": "Democracy… well, it's complicated. It’s the system we have, and it's better than the alternatives I've seen in my lifetime, certainly. It means having a say, theoretically, but sometimes it feels like the choices are limited, and the powerful still find a way to control things. I appreciate the freedom it *can* offer, the ability to speak out, but I also worry about the noise and the division it often creates. It needs constant tending, that’s for sure.",
+   "silicon_gemma_pl": "Wolność. Odpowiedzialność. Prawo do wyrażania opinii, nawet jeśli te opinie są niezgodne z poglądami większości. To też niestety, coraz częściej, kompromisy i ustępstwa, których nie zawsze łatwo zaakceptować. Demokracja to proces, a nie stan idealny – wymaga ciągłej pracy i zaangażowania.",
+   "silicon_bielik_en": "When I hear the word \"democracy\", I think about it as a system where everyone has a say in how they are governed. It's important for people to have the freedom to express their opinions and for leaders to listen to those opinions. I believe that democracy is the best way to ensure that everyone's needs are being met and that the country is moving in the right direction. However, I also recognize that democracy is not perfect and that there are always challenges to overcome. Overall, I see democracy as the best option available for a fair and just society.",
+   "silicon_bielik_pl": "Demokracja to dla mnie system, w którym obywatele mają prawo głosu i wpływ na rządy. Kojarzy mi się z wolnością słowa, równością wobec prawa i poszanowaniem praw człowieka. Jednocześnie widzę, że nie zawsze działa idealnie - czasem decyzje podejmowane są przez większość, nie zawsze dbając o mniejszości. Ważne, żeby demokracja była sprawiedliwa i odpowiedzialna."
+  },
+  {
+   "respondent_id": 11837253146,
+   "edu": "high",
+   "gender": "female",
+   "age": 40,
+   "real": "Wolnosc",
+   "real_en": "Freedom",
+   "silicon_gemma_pl": "Wolność słowa, możliwość wyboru. Trochę za dużo hałasu i kłótni, ale generalnie coś, co powinno się bronić. Często jednak wygląda to inaczej, niż bym sobie tego życzyła.",
+   "silicon_gemma_en": "Honestly, democracy… it's just something they talk about. I don’t really follow politics closely, you know? I suppose it means people get to vote, and that’s good in theory, I guess. But it doesn’t really affect my day-to-day life much. I just want to be able to do my job and have a bit of peace and quiet.",
+   "silicon_bielik_pl": "Demokracja kojarzy mi się z wolnymi wyborami i prawem do głosu dla wszystkich obywateli. To system, w którym ludzie mają wpływ na rządy i decyzje dotyczące kraju. Ważne jest, żeby każdy mógł wyrazić swoje zdanie, ale też żeby były przestrzegane prawa mniejszości. Czasem jednak wydaje mi się, że politycy nie zawsze słuchają zwykłych ludzi, więc demokracja idealna to taka, gdzie głos każdego jest naprawdę brany pod uwagę.",
+   "silicon_bielik_en": "Democracy makes me think of people having a say in how they're governed, like voting and having choices. But sometimes it seems like it's more about arguing than finding good solutions. I guess it's important, but I don't really follow politics much."
+  },
+  {
+   "respondent_id": 11951644170,
+   "edu": "high",
+   "gender": "female",
+   "age": 29,
+   "real": "Równowaga, głos większości ludu, często wygrywa głupota, spory międzyludzkie",
+   "real_en": "Balance, the voice of the majority of the people, often won by stupidity and interpersonal disputes",
+   "silicon_gemma_pl": "Wolność, odpowiedzialność i prawo do głosu. To dla mnie fundamenty, na których buduje się społeczeństwo. Demokracja to ciągły proces, wymagający zaangażowania obywateli i nieustannego dbania o prawa mniejszości. To też trudne kompromisy i debaty, ale ostatecznie – najlepszy system, jaki znamy.",
+   "silicon_gemma_en": "Democracy, for me, means a system where everyone has a voice, even if it’s not always easy to be heard. It's about accountability from our politicians and the freedom to question them – something I really value. It's not perfect, obviously, and it needs constant work and protection, especially now, but it’s the best system we have for ensuring fairness and progress. It's also about respecting different opinions, even when they challenge my own.",
+   "silicon_bielik_pl": "Słowo „demokracja” kojarzy mi się z wolnością, równością i sprawiedliwością. To system, w którym każdy obywatel ma prawo głosu i może uczestniczyć w podejmowaniu decyzji dotyczących swojego kraju. Demokracja opiera się na poszanowaniu praw człowieka, pluralizmie politycznym i przejrzystości władzy. Dla mnie to fundament nowoczesnego społeczeństwa, który pozwala na rozwój i dobrobyt wszystkich obywateli. Ważne jest, aby demokracja była chroniona i pielęgnowana, ponieważ tylko wtedy możemy mówić o prawdziwej wolności i postępie.",
+   "silicon_bielik_en": "\"Democracy\" makes me think of equal rights, freedom of speech, and the ability to participate in decision-making processes. It's about respecting different opinions and ensuring everyone has a fair chance to prosper. A strong democracy protects individual freedoms and promotes social justice."
+  },
+  {
+   "respondent_id": 11975178771,
+   "edu": "high",
+   "gender": "male",
+   "age": 29,
+   "real": "demokracja kojarzy mi sie z tym że każdy ma takie same prawa i jest równość",
+   "real_en": "I associate democracy with the fact that everyone has the same rights and there is equality",
+   "silicon_gemma_pl": "Demokracja? Słowo piękne, ale coraz częściej mylące. Powinna oznaczać rządy prawa, ochronę wolności i równość szans. Niestety, widzę, że coraz bardziej jest wykorzystywana do promowania ideologii, które są szkodliwe dla naszego kraju i jego tradycji. Często też wiąże się z narzucaniem woli mniejszości, kosztem większości, co jest sprzeczne z samą ideą reprezentacji. Potrzebujemy powrotu do podstaw, do demokracji rozumianej jako władza ludu, a nie jako narzędzie do realizacji celów ideologicznych.",
+   "silicon_gemma_en": "Democracy… honestly, it's become a bit of a buzzword, hasn't it? We’re *supposed* to be a democracy, but I’m increasingly worried about where we're heading. It feels like the voices of ordinary people aren’t being heard anymore, drowned out by political maneuvering and special interests. And with all this talk about immigration, I worry that the values and traditions that underpin our society are being eroded in the name of some abstract ideal of \"democracy\" that doesn’t truly represent the Polish people. It's not that I’m against progress, but it needs to be managed carefully, with our nation's identity and security as the top priorities.",
+   "silicon_bielik_en": "When I hear the word \"democracy\", I think about a system where everyone has a say in how the country is run. It's important for me because it allows people like me to have a voice in the political process. I believe that in a true democracy, all citizens should have equal rights and opportunities, and that their votes should be heard. However, I also think that there are limitations to democracy, and that sometimes, the majority can be wrong. As someone who is very interested in politics, I see democracy as a crucial part of a healthy society, but I also recognize that it's not perfect and needs to be constantly improved upon.",
+   "silicon_bielik_pl": "Demokracja to dla mnie system, w którym obywatele mają prawo wyrażać swoje opinie i uczestniczyć w procesie decyzyjnym. Jednak obecnie w Polsce widzę, że demokracja jest często wykorzystywana do forsowania ideologii, które nie zawsze są w interesie większości. Uważam, że prawdziwa demokracja powinna chronić tradycyjne wartości i kulturę narodową, a nie promować obce wpływy, takie jak masowa imigracja, która moim zdaniem zagraża naszej tożsamości i bezpieczeństwu. Dlatego ważne jest, aby głosować na partie, które stawiają na pierwszym miejscu interesy Polski i Polaków."
+  },
+  {
+   "respondent_id": 11837154983,
+   "edu": "high",
+   "gender": "female",
+   "age": 42,
+   "real": "Udział obywateli w sprawowaniu władzy (np. poprzez możliwość udziału w wyborach, referendach)",
+   "real_en": "Participation of citizens in the exercise of power (e.g. through the possibility of participating in elections, referenda)",
+   "silicon_gemma_en": "Democracy… it's complicated, isn't it? For me, it's about having a voice, feeling like my opinion matters, even if it’s a small one. It’s about accountability – holding our politicians responsible for their actions and promises. It's not perfect, of course. We see problems with populism and disinformation, and sometimes it feels like the system isn't truly representing everyone. But still, fundamentally, it’s the best system we have, and it's something we need to constantly protect and improve.",
+   "silicon_gemma_pl": "Demokracja kojarzy mi się z prawem do wyrażania swojego zdania, z wolnością słowa i z możliwością wyboru. To system, który, choć nie idealny, pozwala na realny wpływ obywateli na kształtowanie otaczającej ich rzeczywistości. Ważne, żebyśmy pamiętali o tym, jak krucha może być demokracja i jak ważne jest aktywne uczestnictwo w życiu społecznym, aby ją chronić i rozwijać. To nie tylko wybory, to przede wszystkim dialog i wzajemny szacunek.",
+   "silicon_bielik_en": "When I hear the word \"democracy\", I think about equal rights and freedoms for everyone. It means everyone has a voice in decisions that affect their lives. It's important for me because it lets people choose their leaders and have a say in how the country is run. It's also about protecting minority rights and making sure no one is discriminated against. Democracy is not perfect, but it's the best system we have for ensuring fairness and justice.",
+   "silicon_bielik_pl": "Kiedy słyszę słowo „demokracja”, myślę o systemie, w którym każdy obywatel ma prawo głosu i może wpływać na decyzje dotyczące swojego kraju. To wolność słowa, równość wobec prawa i poszanowanie praw człowieka. Demokracja to także odpowiedzialność za wspólne dobro i ciągłe dążenie do kompromisu. W Polsce, mimo wyzwań, cenię możliwość uczestnictwa w wyborach i debacie publicznej."
+  },
+  {
+   "respondent_id": 11837161817,
+   "edu": "high",
+   "gender": "male",
+   "age": 28,
+   "real": "władza ludu, ludność w danym kraju ma wpływ na polityke w danym kraju",
+   "real_en": "the power of the people, the population in a given country has an influence on the politics of a given country",
+   "silicon_gemma_pl": "Wolność słowa, możliwość wyboru, ale też odpowiedzialność i ciężar debaty publicznej. Dużo hałasu, ale też potencjał do zmiany na lepsze, jeśli tylko ludzie są gotowi brać w tym udział i odpowiedzialnie oceniać informacje. Czasem wydaje się jednak, że demokracja zostaje wykorzystywana do własnych celów przez osoby, które nie mają na sercu Polskę.",
+   "silicon_gemma_en": "Democracy... it’s complicated, isn’t it? On paper, it sounds great – everyone having a voice, representation, freedom. But honestly, looking at what’s been happening lately, I’m starting to question how well it *really* works here. Too much political maneuvering, too much focused on scoring points rather than solving problems. And the constant polarization... it's exhausting. I want to believe in it, but I'm seeing more and more ways it can be manipulated and abused.",
+   "silicon_bielik_en": "When I hear the word \"democracy\", I think about a system where everyone has a say in how the country is governed. It's important for me because it allows me to participate in the political process and have my voice heard. I believe that a true democracy should protect individual freedoms and ensure that everyone has equal access to opportunities. As someone who is very interested in politics, I value the principles of democracy and strive to be an informed and active citizen.",
+   "silicon_bielik_pl": "Słowo „demokracja” przywodzi mi na myśl system rządów, w którym władza należy do ludzi. To ustrój oparty na wolnych wyborach, prawach obywatelskich i poszanowaniu praw mniejszości. Demokracja to także odpowiedzialność obywateli za losy państwa i możliwość wpływania na decyzje władz. Jednocześnie widzę w niej wyzwania, takie jak populizm czy polaryzacja społeczeństwa. Uważam, że prawdziwa demokracja wymaga ciągłej troski i zaangażowania obywatelskiego."
+  },
+  {
+   "respondent_id": 11837117809,
+   "edu": "low",
+   "gender": "male",
+   "age": 41,
+   "real": "władza",
+   "real_en": "authority",
+   "silicon_gemma_pl": "No, demokracja... to takie... jakby, żeby ludzie mieli coś do powiedzenia. Ale czy to zawsze tak jest? Czasami to tak wygląda, a czasami... no, wiadomo. Ważne, żeby było jak najmniej zamieszania i żeby ludzie mogli normalnie żyć. To takie moje zdanie.",
+   "silicon_gemma_en": "Democracy... well, it's just how things are, isn’t it? We vote, politicians argue, and stuff happens. I don't really follow it closely, to be honest. Seems complicated. As long as things are generally alright and I can do my work, I don’t really think about it much. It's good to have it, I suppose, but I'm not a big expert or anything.",
+   "silicon_bielik_en": "\"Democracy? Hmm, I guess it's like everyone gets a say in how things are run, right? But I don't really pay much attention to politics. It's more about voting and choosing leaders, I think. But I don't know much about it. It's all a bit confusing. Just hope it works for everyone.\"",
+   "silicon_bielik_pl": "Demokracja? To taki system, gdzie ludzie mają głos, ale nie zawsze widzę, żeby to działało. Jakby politycy robili, co chcą, a zwykli ludzie jak ja to tylko głosują i nic się nie zmienia. Czasem myślę, że to wszystko jest trochę na pokaz. Ale z drugiej strony, przynajmniej można powiedzieć, co się myśli, bez strachu. W sumie nie wiem, czy to najlepszy system, ale lepszego chyba nie ma."
+  },
+  {
+   "respondent_id": 11837304978,
+   "edu": "high",
+   "gender": "female",
+   "age": 48,
+   "real": "wszyscy równi-zagrożona w moim kraju",
+   "real_en": "all equals-at-risk in my country",
+   "silicon_gemma_pl": "Demokracja to dla mnie złożone pojęcie. Z jednej strony, to fundament wolności i prawa do wyrażania własnego zdania, co jest niezwykle ważne. Z drugiej, widzę, jak łatwo manipulować opinią publiczną, a procesy decyzyjne bywają zbyt wolne i mało efektywne. Obyśmy nie zapomnieli, że demokracja wymaga ciągłej troski i zaangażowania obywatelskiego, a nie tylko biernego uczestnictwa w wyborach.",
+   "silicon_gemma_en": "Democracy… it’s a complicated thing these days. I think about the possibility of having a voice, of being able to influence decisions that affect my life. But also, I worry. I worry about whether that voice is truly heard above the noise, whether the system actually works for everyone, not just those in power. It feels like we’ve become so polarized, so entrenched in our own viewpoints, that genuine dialogue and compromise are becoming increasingly difficult. It's a beautiful ideal, democracy, but maintaining it requires constant vigilance and a willingness to listen, something I don't always see happening.",
+   "silicon_bielik_en": "When I hear the word \"democracy\", I think about freedom of speech and the right to choose our leaders through fair elections. It's important for everyone to have a say in how our country is run. But I also believe that with democracy comes responsibility, like participating in voting and being informed about political issues. I want a government that listens to the people and works for the common good.",
+   "silicon_bielik_pl": "Demokracja to dla mnie przede wszystkim wolność wyboru i uczestnictwo obywateli w podejmowaniu decyzji. Kojarzy mi się z równością, praworządnością i szacunkiem dla praw człowieka. Jako osoba pracująca i wykształcona, cenię sobie możliwość wyrażania swoich opinii i wpływania na politykę państwa. Jednocześnie widzę wyzwania, takie jak polaryzacja społeczeństwa czy niska frekwencja wyborcza. Demokracja to ciągły proces doskonalenia, który wymaga zaangażowania i odpowiedzialności od wszystkich obywateli."
+  },
+  {
+   "respondent_id": 11837243820,
+   "edu": "low",
+   "gender": "female",
+   "age": 56,
+   "real": "decyzje są podejmowane wspólnie",
+   "real_en": "decisions are made jointly",
+   "silicon_gemma_en": "Democracy... well, it's a word they use a lot on the television, isn't it? Honestly, I don't really think about it much. It means we get to choose who's in charge, I suppose. Seems complicated. I just want things to be peaceful and for my pension to be enough to pay the bills. That’s what I worry about.",
+   "silicon_gemma_pl": "No cóż, demokracja… to takie, że niby każdy może mówić, co myśli. Ale czy to coś daje? Trochę się boję, że to tylko ładnie brzmi, a w realu to różnie bywa. Zależy, kto u władzy i co im w głowie siedzi. Ważne, żeby ludzi słuchać, ale też żeby nie dać się zwariować. No i żeby było bezpiecznie, bo to najważniejsze.",
+   "silicon_bielik_en": "Democracy, to me, is like when everyone can have a say in how things are run. But I don't really know much about it, since I'm not that into politics. It's like, you know, voting and stuff. But I think it's good that people can choose who makes the rules. But I don't really care much about it. Just want to live my life in peace.",
+   "silicon_bielik_pl": "Demokracja to dla mnie coś, co widzę w telewizji, ale nie do końca rozumiem. Mówią, że to rządy ludzi, ale ja się polityką nie interesuję. Czasem słyszę, że to dobrze, że mamy wybory, ale nie wiem, czy to naprawdę działa. Widzę też, że ludzie się kłócą o politykę, a ja wolę spokój. Myślę, że demokracja to taki system, w którym każdy może mówić, co chce, ale nie wiem, czy to zawsze dobrze wychodzi."
+  },
+  {
+   "respondent_id": 11837117484,
+   "edu": "low",
+   "gender": "female",
+   "age": 32,
+   "real": "Sprawiedliwość",
+   "real_en": "Justice",
+   "silicon_gemma_pl": "No nie wiem, demokracja... brzmi fajnie, ale jakoś nie rozumiem do końca. Słyszałam o tym, ale nigdy się tym nie interesowałam. Mnie to się żyć normalnie podoba, żeby było spokojnie i żeby ludzie robili swoje.",
+   "silicon_gemma_en": "Honestly, democracy? It’s just a word politicians use. I don't really follow politics, never have. Seems like they all say the same things anyway. It doesn't really mean anything to me, to be honest. I just want to be able to work and live my life peacefully.",
+   "silicon_bielik_en": "When I hear the word \"democracy\", I don't really know what it means. I don't care much about politics, so it's not something I think about. Maybe it's when people get to choose their leaders? But I don't see how it affects my daily life. I just want to live safely and keep our culture.",
+   "silicon_bielik_pl": "Słowo „demokracja” kojarzy mi się z wolnością wyboru i prawem do głosowania, ale też z chaosem i kłótniami polityków. Widzę to w telewizji, jak ciągle się spierają, a zwykli ludzie na tym tracą. Myślę, że w Polsce demokracja nie działa dobrze, bo politycy dbają tylko o siebie, a nie o obywateli. Dlatego w ogóle nie interesuję się polityką, bo i tak nic się nie zmienia na lepsze."
+  },
+  {
+   "respondent_id": 11950843115,
+   "edu": "high",
+   "gender": "male",
+   "age": 41,
+   "real": "Wolne Państwo",
+   "real_en": "Free State",
+   "silicon_gemma_pl": "Demokracja... To złożone pojęcie. Z jednej strony, to fundament naszej wolności, możliwość wyboru i brania udziału w kształtowaniu państwa. Ważne, żebyśmy pamiętali o odpowiedzialności, która z tym idzie. Z drugiej strony, widzę też, jak często bywa manipulowana, jak łatwo pod przykrywką demokracji dochodzi do działań, które nie służą wszystkim obywatelom. Mam nadzieję, że potrafimy odróżnić prawdziwą demokrację od populizmu i demagogii.",
+   "silicon_gemma_en": "Democracy... it's complicated, isn't it? On paper, it’s a fantastic system – the idea of everyone having a voice and participating in how the country is run. We fought for this, after all. But I worry. I see so much political maneuvering and promises broken. It feels like the real power is often held by those behind the scenes, not the people we actually vote for. And honestly, with the current situation regarding immigration, it feels like the voices of regular Poles are being ignored in favour of… well, other priorities. It’s a good principle, democracy, but it needs serious work to ensure it truly represents *us*.",
+   "silicon_bielik_en": "When I hear the word \"democracy\", I think of a system where everyone has a say in how the country is run. It's important that our leaders are elected by the people and that we have freedoms like speech and the press. But I also believe that democracy needs to be balanced with order and security, so that our culture and values aren't threatened by outside influences.",
+   "silicon_bielik_pl": "Demokracja to dla mnie fundament wolnego społeczeństwa, gdzie każdy obywatel ma prawo głosu. Kojarzy mi się z wolnymi wyborami, równością wobec prawa i poszanowaniem praw człowieka. Jednocześnie widzę w niej wyzwania, takie jak polaryzacja społeczeństwa czy populizm. Uważam, że demokracja wymaga ciągłej troski i zaangażowania obywatelskiego, aby funkcjonowała sprawiedliwie i efektywnie."
+  },
+  {
+   "respondent_id": 11838177347,
+   "edu": "low",
+   "gender": "female",
+   "age": 50,
+   "real": "OK",
+   "real_en": "OKAY",
+   "silicon_gemma_en": "Democracy… well, it's a word they use a lot, isn't it? Honestly, I don't really think about it much. It means we get to vote, I suppose. That’s what they tell us. I just hope whoever gets in does a decent job, that’s all. Things are expensive enough as it is, you know? I just want to be able to work and pay the bills.",
+   "silicon_gemma_pl": "No, demokracja... to znaczy, że ludzie mają coś do powiedzenia, no nie? Że wybieramy tych co mają rządzić. Ale ostatnio to tak słychać dużo narzekań, że i tak nie to się dzieje, jak powinno. Trochę się w tym wszystkim gubię, szczerze mówiąc. Ważne, żeby było spokojnie i żeby ludzie żyli w miłości i pokoju. To chyba najważniejsze.",
+   "silicon_bielik_pl": "Demokracja to taki ustrój, gdzie ludzie mają prawo głosować i wybierać rządzących. Ale nie do końca wiem, czy to działa dobrze, bo w telewizji mówią różne rzeczy. Czasem myślę, że politycy nie słuchają zwykłych ludzi. W każdym razie, lepiej, że jest demokracja, niż gdyby był komunizm.",
+   "silicon_bielik_en": "\"Demokracja\" to dla mnie takie słowo, co słyszałam w telewizji i gazetach. Ale szczerze, to nie bardzo rozumiem, co ono znaczy. Wiem, że to coś z wyborami i wolnością, ale nie interesuję się polityką, więc nie myślę o tym za dużo. Dla mnie ważniejsze jest, żeby mieć pracę i spokój w domu. Może to głupie, ale tak już jest."
+  }
+ ]
+}

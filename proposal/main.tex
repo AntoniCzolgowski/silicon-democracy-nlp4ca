@@ -1,0 +1,118 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[letterpaper,margin=0.72in,columnsep=0.24in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{stfloats}
+\usepackage[font=small,labelfont=bf,skip=3pt]{caption}
+\usepackage[round]{natbib}
+\setlength{\bibsep}{0pt}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{4pt}{1pt}
+\titleformat{\section}{\normalsize\bfseries}{\thesection}{0.5em}{}
+\setlength{\parskip}{2pt}
+\setlength{\parindent}{0pt}
+\setlength{\textfloatsep}{6pt}
+\setlength{\dbltextfloatsep}{6pt}
+\newtcolorbox{hypbox}{colback=gray!8,colframe=gray!60,boxrule=0.4pt,arc=1pt,left=3pt,right=3pt,top=2pt,bottom=2pt}
+
+\title{\vspace{-0.62in}\large\textbf{Whose Democracy? Do LLM-Simulated Poles Talk About Democracy\\Like Real Poles, and Does the Prompt Language Matter?}}
+\author{\normalsize Antoni Czolgowski \quad CSCI 7000 NLP for Cultural Analytics, Proposal 1, 1 October 2026}
+\date{\vspace{-0.32in}}
+
+\begin{document}
+\maketitle
+
+\section{Motivation and research questions}
+LLM personas are increasingly proposed as stand-ins for survey respondents \citep{argyle2023,park2024}. Critics show they get the averages right but make every group sound the same \citep{bisbee2024,wang2025}. Almost all of this evidence is American, English-language and closed-ended. Yet the open-ended question is where a survey hears citizens in their own words, and what they say there is culture in the sense of \citet{zhou2025}: situated, contested meaning rather than trivia. I study one such meaning, what \emph{democracy} is to ordinary people. Political scientists distinguish procedural, liberal and substantive (output) conceptions and find that they vary across countries \citep{dalton2007,ferrin2016}. In Poland in 2020, the meaning of democracy was itself a political fight. Since 2015 the governing party had reshaped the Constitutional Tribunal and the courts, presenting these changes as the will of the voters who elected it, while the opposition and EU institutions, which opened the Article 7 procedure in 2017, described them as dismantling judicial independence. The survey was done just after the 2020 presidential election, which was won by 51\% to 49\%. For one side, democracy meant majority rule; for the other, it meant rule of law and checks on the majority. If a model asked to be a 41-year-old Pole without a degree writes a hedged paragraph where the real respondent wrote one word, \emph{władza} (power), simulated surveys erase exactly the conceptions that explain political behaviour. A second, practical question: non-English populations are routinely simulated with English prompts, and the literature disagrees about whether that matters. Native-language prompting helped in \citet{alkhamissi2024} and in my own WVS work \citep{czolgowski2026}, hurt in \citet{kwok2024}, and mattered less than explicit cultural framing in \citet{bulte2026}.
+
+\begin{hypbox}
+\textbf{RQ1.} When LLM personas built from real Polish respondents answer ``When you hear the word \emph{democracy}, what are you thinking about?'', do they express the conceptions of democracy of the people they simulate?\\[2pt]
+\textbf{H1 (flattening).} Silicon answers are longer and more homogeneous than real ones, almost never non-substantive, and their profile of Democracy Tree domains differs from the real profile by more than two random halves of the real sample differ. \emph{Disconfirmed if} the silicon--real Jensen--Shannon divergence (JSD) lies inside the 95\% split-half range and silicon diversity is not lower.\\[2pt]
+\textbf{H2 (prompt language).} The same personas prompted in English drift further from real Poles, and towards real Americans, than when prompted in Polish. \emph{Disconfirmed if} JSD(English, real Poles) $-$ JSD(Polish, real Poles) has a paired-bootstrap 95\% CI that includes or lies below 0.
+\end{hypbox}
+
+\section{Data}
+\textbf{LES Democracy Survey 2020} \citep{dahlberg2026}, released under CC0 on Harvard Dataverse \citep{durlich2026}: about 2,000 internet users aged 18--65 per country in 10 countries, quota-sampled by a panel provider (July--October 2020), each answering in their own language. I use \textbf{Poland} (2,670 respondents; 2,570 with a usable answer and complete persona variables after dropping answers the authors flag as noise) and the \textbf{United States} (2,630 answers) as an English-language anchor. Persona metadata: gender, age, education (low/high), employment, interest in politics, and three immigration attitudes. The package also has \textbf{500 Polish answers coded by two human annotators} with the Democracy Tree \citep{dahlbergmorkenstam2024}: Governance, Values and Outcome domains with nested subdomains, plus a valence per span. Real answers are short (median 5 words; 16\% are one word). \emph{Permissions:} CC0, de-identified secondary data with no interaction with people, so no IRB question; the generated text involves no human subjects.
+
+\section{Language features (operationalization)}
+The concept I measure is a respondent's \emph{conception of democracy}, and the unit of analysis is one answer. (1) \textbf{Democracy Tree domains and valence.} The Democracy Tree \citep{dahlbergmorkenstam2024} sorts what people mean by democracy into three domains: \emph{Governance}, how democracy works and who rules (elections, parliament, laws, majority rule); \emph{Values}, the ideals behind it (freedom, equality, human rights); and \emph{Outcome}, what it delivers or fails to deliver (stability, prosperity, corruption). Each domain splits into finer subdomains, and every coded fragment also gets a valence (positive, neutral or negative). So ``wolne wybory'' (free elections) is Governance, ``wolność słowa'' (free speech) is Values, and ``politycy kradną'' (politicians steal) is a negative Outcome. I use this scheme because it was built from how the word is actually used in online media across 93 countries, not from one theorist's definition, and because human annotators have already applied it to these exact answers. An LLM coder assigns the codes from the codebook definitions. I validate it against the human codes and check that a Polish answer and its English translation get the same codes, so that any language effect comes from the respondents and not from the coder. (2) \textbf{Non-substantive answers} (``nie wiem'', ``nic''): for many people ``I don't know'' is a real answer, and silicon respondents may never give it. (3) \textbf{Distinctive words} (Fightin' Words, \citealp{monroe2008}), always compared within one language. (4) \textbf{Homogeneity}: the mean cosine similarity between answer embeddings (embeddinggemma) and the number of different words at an equal token budget. (1) captures \emph{what} people say about democracy; (2)--(4) test \emph{how} the flattening happens.
+
+\section{Feasibility test}
+\textbf{Setup.} For 150 real Polish respondents (stratified by education $\times$ gender) I built a persona from their survey variables and asked two open models, \textbf{Gemma~3 12B} (global) and \textbf{Bielik 11B v3} (Polish-native), the exact questionnaire item, once in Polish and once in English, with no instruction about length (temperature 1; 600 answers). One coder, Gemma~3 27B (zero-shot), then coded 1,450 answers: 200 human-coded validation answers in Polish and in English translation, 300 real Polish and 150 real US answers, and all silicon answers. The run took 48 minutes on one 48\,GB GPU slice of CU's Alpine cluster (4-bit models served with Ollama).
+
+\begin{table}[h]\centering\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccc@{}}\toprule
+$\kappa$ & coder--human & human--human & PL vs EN \\ \midrule
+Governance & .76 & .74 & .84 \\
+Values & .79 & .83 & .85 \\
+Outcome & .54 & .60 & .79 \\
+Non-response & .62 & .86 & .93 \\
+Valence (5-way) & .76 & .60 & -- \\ \bottomrule
+\end{tabular}
+\caption{Coder validation on 200 human-coded Polish answers. The last column compares coding of the Polish original and its English translation. Macro-F1 over domains 0.77.}
+\end{table}
+
+\textbf{The operationalization holds} (Table~1): coder--human agreement matches agreement between the two human annotators for Governance and Values and is close for Outcome, and codes barely change with the answer's language.
+
+\begin{table*}[t]\centering\small\setlength{\tabcolsep}{3.6pt}
+\begin{tabular}{@{}lccccccccc@{}}\toprule
+Corpus ($n$=150 each) & Med.\ words & $\le$3 words & Non-resp. & Outcome & All 3 dom. & Mixed & Positive & Emb.\ sim. & JSD vs real PL [95\% CI] \\ \midrule
+Real Poles & 5 & 40\% & 5\% & 21\% & 7\% & 2\% & 61\% & .46 & (split halves: p95 .015) \\
+Real Americans & 5 & 37\% & 9\% & 27\% & 5\% & 1\% & 57\% & .43 & .008 [.003, .034] \\ \midrule
+Gemma, PL prompt & 52 & 0\% & 1\% & 89\% & 67\% & 60\% & 27\% & .70 & .046 [.027, .074] \\
+Gemma, EN prompt & 74 & 0\% & 0\% & 93\% & 67\% & 51\% & 16\% & .70 & .062 [.040, .093] \\
+Bielik, PL prompt & 65 & 0\% & 0\% & 95\% & 79\% & 66\% & 31\% & .83 & .055 [.035, .082] \\
+Bielik, EN prompt & 66 & 0\% & 1\% & 89\% & 69\% & 51\% & 37\% & .70 & .044 [.026, .074] \\ \bottomrule
+\end{tabular}
+\caption{Real vs.\ silicon answers to ``When you hear the word \emph{democracy}, what are you thinking about?''. Rows: the 150 real Polish respondents whose survey data were used to build the personas; 150 randomly drawn US respondents (an English-language reference); and one silicon answer per persona from Gemma~3 12B and Bielik 11B v3, each prompted in Polish (PL) and in English (EN). Columns: median answer length in words; share of answers with three words or fewer; share coded as non-substantive (e.g.\ ``nie wiem''); share mentioning the Outcome domain; share touching all three Democracy Tree domains at once; share whose overall tone is mixed (weighing pros and cons) or positive; and Emb.\ sim., the mean cosine similarity between all pairs of answers in a corpus (embeddinggemma; higher means the answers are more alike). All codes come from the Gemma~3 27B coder validated in Table~1. JSD is the Jensen--Shannon divergence (0 = identical, 1 = no overlap) between a corpus's domain profile (the share of its codes that fall into Governance, Values, Outcome, Non-response and Other) and the profile of the real Polish answers, with 95\% confidence intervals from 1,000 bootstrap resamples. The real-Poles row shows the noise floor instead: the 95th percentile of the JSD between two random halves of 300 real Polish answers, i.e.\ the divergence expected from sampling alone.}
+\end{table*}
+
+\textbf{H1 is supported} (Table~2). Real Poles answer in about five words: 40\% use three or fewer, and 5\% give no substantive answer at all. Silicon Poles write paragraphs (median 52--74 words; the shortest has 19) and almost never say ``I don't know''. They also say something different. Two thirds or more of silicon answers touch all three domains at once (real: 7\%), and their domain profiles differ from the real one by JSD 0.044--0.062, about three to four times the noise level between two random halves of the real data (0.015), with every CI above it. Two shifts drive this. Silicon answers talk about outcomes far more often (89--95\% vs 21\%), and they are ambivalent: 51--66\% weigh pros and cons (``it's complicated, isn't it?''), while only 2\% of real answers do, and most real answers are positive. Silicon answers are also more alike, with embedding similarity of 0.70--0.83 vs 0.46 and fewer different words (361--423 vs 485 per 1,071 Polish tokens). Even real answers of 15 or more words ($n$=40) mention outcomes only 35\% of the time and are mixed only 10\% of the time. Fightin' Words shows that the difference is one of kind. Real Poles name concepts (\emph{wolność} `freedom', \emph{ustrój} `political system', \emph{większości} `of the majority', \emph{ludu} `of the people', \emph{władza} `power'), while silicon Poles perform a speaker (\emph{ale} `but', \emph{mnie} `to me', \emph{widzę} `I see', \emph{czasem} `sometimes', \emph{no} `well'); the same pattern appears in English against real Americans. Finally, the personas flatten individuals but exaggerate groups. A silicon answer tells us nothing about what the same person really said ($\kappa\approx0$), yet the gap between high- and low-education respondents in Values talk grows from +0.08 in real data to +0.13--0.33 in silicon data, and low-education personas are written with fake hesitations (``No, demokracja\ldots\ to takie\ldots\ jakby''), a caricature in the sense of \citet{cheng2023}.
+
+\textbf{H2 is only partly supported.} For Gemma, the English prompt moves the profile further from real Poles (paired $\Delta$JSD +0.017, 95\% CI [+0.005, +0.029]). For Bielik the difference is not reliable and has the opposite sign ($-$0.010 [$-$0.020, +0.003]), partly because Bielik answered 19 of 150 English prompts (13\%) in Polish anyway. The ``towards Americans'' half cannot be tested at this level: real Poles and Americans have nearly the same domain profile (JSD 0.008, inside the split-half range), so top-level domains are too coarse to separate national conceptions. This is the most useful failure of the test, and it moves the extended proposal to the Democracy Tree subdomains.
+
+\section{Relation to existing work}
+\citet{argyle2023} validated silicon samples with four-word lists about US partisans; \citet{wang2025} showed that LLM personas flatten identity groups in free text, with closed, US-based human data; \citet{zhang2025} found AI-assisted open-ended survey answers more homogeneous and positive. Culture-and-prompt-language studies use closed value items \citep{alkhamissi2024,kwok2024,bulte2026,czolgowski2026}. In NLP, \citet{hamilton2026} and \citet{abdulhai2026} document low diversity and distortion in LLM writing, and \citet{bamman2024} show when LLM classifiers can replace human coding. \textbf{What I add:} real open-ended answers from a non-English national survey as the reference, a clear and validated way to measure what people mean by democracy, and a direct test of prompt language, where the same persona is asked once in Polish and once in English.
+
+\section{Methods considered, and rejected}
+\emph{Closed survey items}, as in my WVS work, cannot show \emph{how} people frame democracy. \emph{Topic models} fail on five-word answers. \emph{The authors' fine-tuned XLM-R tagger} (F1 $\approx$ 0.72) is trained only on human text and is 8\,GB; I keep it as a cross-check. \emph{Hand-coding} everything is too slow, so humans serve as validation. \emph{Commercial APIs} were set aside for open-weight models, for reproducibility and to include a Polish-native model.
+
+\section{Limitations, ethics, next steps}
+The sample is online and aged 18--65, not a probability sample. Each model was run with one prompt template, one temperature and 4-bit weights, and the coder is itself an LLM (hence the validation). The analysis cannot say \emph{why} models flatten (training data vs.\ alignment). Ethics is central to this project. Silicon samples are attractive because they are cheap, and that is exactly the risk: a campaign, a ministry or a consultancy could report ``what Poles think'' from answers no Pole wrote. My results suggest who would disappear first: the short, blunt and cynical answers vanish, and less-educated respondents are turned into caricatures. I therefore report where simulations fail for specific groups and not only on average, and release all code, prompts and outputs. I see this work as a check on silicon sampling, not as a way to replace respondents. Next: Democracy Tree subdomains; all 10 countries and languages (does English prompting flatten national differences?); the second open question (reasons for satisfaction with democracy); testing whether asking for short answers, or telling the model to answer from a Polish point of view, closes the gap; Polish human judges.
+
+\section*{Team}
+Antoni Czolgowski (solo): question, design, data, experiments and writing.
+
+\section*{Acknowledgments}
+Readings that shaped the idea: \citet{hamilton2026}, \citet{abdulhai2026}, \citet{subbiah2026}, \citet{zhou2025} and \citet{bamman2024}. Computation on CU Boulder's Alpine cluster. AI use: Claude helped me brainstorm the direction, find and inspect the dataset, write the data-preparation, Alpine notebook and analysis code. I also utilized it to look for certain references. Code and derived data: github.com/AntoniCzolgowski/silicon-democracy-nlp4ca.
+
+\small
+\begin{thebibliography}{99}
+\bibitem[Abdulhai et al.(2026)]{abdulhai2026} M. Abdulhai, I. White, Y. Wan, et al. 2026. How LLMs distort our written language. arXiv:2603.18161.
+\bibitem[AlKhamissi et al.(2024)]{alkhamissi2024} B. AlKhamissi, M. ElNokrashy, M. AlKhamissi, et al. 2024. Investigating cultural alignment of large language models. \emph{ACL 2024}, 12404--12422.
+\bibitem[Argyle et al.(2023)]{argyle2023} L. P. Argyle, E. C. Busby, N. Fulda, et al. 2023. Out of one, many: Using language models to simulate human samples. \emph{Political Analysis} 31(3):337--351.
+\bibitem[Bamman et al.(2024)]{bamman2024} D. Bamman, K. K. Chang, L. Lucy, N. Zhou. 2024. On classification with large language models in cultural analytics. \emph{CHR 2024}, 494--527.
+\bibitem[Bisbee et al.(2024)]{bisbee2024} J. Bisbee, J. D. Clinton, C. Dorff, et al. 2024. Synthetic replacements for human survey data? The perils of large language models. \emph{Political Analysis} 32(4):401--416.
+\bibitem[Bulté and Rigouts Terryn(2026)]{bulte2026} B. Bulté, A. Rigouts Terryn. 2026. LLMs and cultural values: The impact of prompt language and explicit cultural framing. \emph{Computational Linguistics} 52(2):407--494.
+\bibitem[Cheng et al.(2023)]{cheng2023} M. Cheng, E. Durmus, D. Jurafsky. 2023. Marked personas: Using natural language prompts to measure stereotypes in language models. \emph{ACL 2023}, 1504--1532.
+\bibitem[Czołgowski and Iyasele(2026)]{czolgowski2026} A. Czołgowski, A. Iyasele. 2026. Cultural misalignment in large language models: Detection, measurement, and mitigation through targeted fine-tuning. arXiv:2609.04485.
+\bibitem[Dahlberg et al.(2026)]{dahlberg2026} S. Dahlberg, L. Dürlich, S. Axelsson, Y. Zhao, J. Nivre. 2026. Using multilingual language technology to classify open-ended survey responses: Conceptions of democracy in a cross-cultural survey setting. \emph{Political Analysis}, First View. doi:10.1017/pan.2026.10043.
+\bibitem[Dahlberg and Mörkenstam(2024)]{dahlbergmorkenstam2024} S. Dahlberg, U. Mörkenstam. 2024. Exploring popular conceptions of democracy through media discourse: Analysing dimensions of democracy from online media data in 93 countries using a distributional semantic model. \emph{Democratization} 31(8):1766--1797.
+\bibitem[Dalton et al.(2007)]{dalton2007} R. J. Dalton, D. C. Shin, W. Jou. 2007. Understanding democracy: Data from unlikely places. \emph{Journal of Democracy} 18(4):142--156.
+\bibitem[Dürlich et al.(2026)]{durlich2026} L. Dürlich, S. Dahlberg, S. Axelsson, J. Nivre, Y. Zhao. 2026. Replication data for ``Using multilingual language technology to classify open-ended survey responses''. Harvard Dataverse. doi:10.7910/DVN/XOWF9C.
+\bibitem[Ferrín and Kriesi(2016)]{ferrin2016} M. Ferrín, H. Kriesi (eds.). 2016. \emph{How Europeans View and Evaluate Democracy}. Oxford University Press.
+\bibitem[Hamilton and Mimno(2026)]{hamilton2026} S. Hamilton, D. Mimno. 2026. Elias in the lighthouse, again? Diagnosing low diversity in LLM stories. arXiv:2605.26492.
+\bibitem[Kwok et al.(2024)]{kwok2024} L. Kwok, M. Bravansky, L. D. Griffin. 2024. Evaluating cultural adaptability of a large language model via simulation of synthetic personas. \emph{COLM 2024}.
+\bibitem[Monroe et al.(2008)]{monroe2008} B. L. Monroe, M. P. Colaresi, K. M. Quinn. 2008. Fightin' words: Lexical feature selection and evaluation for identifying the content of political conflict. \emph{Political Analysis} 16(4):372--403.
+\bibitem[Park et al.(2024)]{park2024} J. S. Park, C. Q. Zou, J. Kamphorst, et al. 2024. LLM agents grounded in self-reports enable general-purpose simulation of individuals. arXiv:2411.10109.
+\bibitem[Subbiah et al.(2026)]{subbiah2026} M. Subbiah, H. Mian, N. Deas, et al. 2026. Whose story gets told? Positionality and bias in LLM summaries of life narratives. arXiv:2604.20131.
+\bibitem[Wang et al.(2025)]{wang2025} A. Wang, J. Morgenstern, J. P. Dickerson. 2025. Large language models that replace human participants can harmfully misportray and flatten identity groups. \emph{Nature Machine Intelligence} 7(3):400--411.
+\bibitem[Zhang et al.(2025)]{zhang2025} S. Zhang, J. Xu, A. J. Alvero. 2025. Generative AI meets open-ended survey responses: Research participant use of AI and homogenization. \emph{Sociological Methods \& Research} 54(3):1197--1242.
+\bibitem[Zhou et al.(2025)]{zhou2025} N. Zhou, D. Bamman, I. L. Bleaman. 2025. Culture is not trivia: Sociocultural theory for cultural NLP. \emph{ACL 2025}.
+\end{thebibliography}
+\end{document}

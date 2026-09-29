@@ -22,8 +22,13 @@ Dürlich et al. (2026) Harvard Dataverse doi:10.7910/DVN/XOWF9C. Derived inputs 
 ### How to launch on Alpine (Open OnDemand)
 1. https://ondemand.rc.colorado.edu → **Interactive Apps → Jupyter Session**
 2. Configuration type **Custom configuration**: Cluster `alpine`, Account `ucb-general`, Partition `aa100`,
-   - full run: QoS `gpu-normal`, gres `gpu:a100-40gb:1`, Time `3`, cores `8`
-   - quick check (usually starts at once, 1 h max): QoS `gpu-testing`, gres `gpu:a100_3g.20gb:1`, Time `1`, cores `10`
+   Account: your allocation (`ucb757_asc1`) or `ucb-general`. Any of these GPUs works (the A100 pool is often the busiest,
+   so queue two or three at once and delete the others as soon as one starts; never Run All in two sessions at the same time):
+   - Partition `aa100`, QoS `gpu-normal`, gres `gpu:a100-40gb:1`, Time `2`, cores `8`
+   - Partition `artxpro6000`, QoS `gpu-normal`, gres `gpu:rtx_pro_6000_2g.48gb:1` (or `gpu:rtx_pro_6000_1g.24gb:1`), Time `2`, cores `8`
+   - Partition `ah200`, QoS `gpu-normal`, gres `gpu:h200_2g.35gb:1`, Time `2`, cores `8`
+   - Partition `al40`, QoS `gpu-normal`, gres `gpu:l40:1`, Time `2`, cores `8`
+   - testing slice (usually starts at once, 1 h max, the notebook resumes across sessions): Partition `aa100`, QoS `gpu-testing`, gres `gpu:a100_3g.20gb:1`, Time `1`, cores `10`
 3. **Connect to Jupyter**, then File → Open from Path → `/projects/<you>`; clone this repo there (cell below) and open this notebook.
 4. Run with `SMOKE = True` first (3 items per stage), then set `SMOKE = False` and **Run All** again.
    Every stage checkpoints to `outputs/`: if the session ends, just run again and it continues.
@@ -32,6 +37,8 @@ Dürlich et al. (2026) Harvard Dataverse doi:10.7910/DVN/XOWF9C. Derived inputs 
 code(r"""
 # (only once) clone the repo into /projects/$USER, then open notebooks/feasibility_alpine.ipynb from the file browser
 # !cd /projects/$USER && git clone https://github.com/AntoniCzolgowski/silicon-democracy-nlp4ca.git
+# update to the latest version later (keeps outputs/; resets this notebook, so set SMOKE again afterwards):
+# !cd /projects/$USER/silicon-democracy-nlp4ca && git fetch -q && git reset --hard origin/main
 """)
 
 md("## 1. Settings")
@@ -68,11 +75,22 @@ try:
 except FileNotFoundError:
     gpu = 'NO GPU'
     if not os.environ.get('OLLAMA_URL'):
-        raise RuntimeError('No GPU in this session: relaunch the Jupyter Session with partition aa100 and a gres (see top of notebook)')
+        raise RuntimeError('No GPU in this session: relaunch the Jupyter Session on a GPU partition with a gres (see top of notebook)')
 print(gpu)
-SLICE = 'MIG' in gpu or os.environ.get('CUDA_VISIBLE_DEVICES', '').startswith('MIG')
-PAR, GEN_WORKERS, CODE_WORKERS = (1, 2, 1) if SLICE else (4, 4, 3)
-print('GPU type:', '20 GB MIG slice' if SLICE else 'full GPU', '| parallel requests:', PAR)
+import re
+mig = re.findall(r'MIG\s+\d+g\.(\d+)gb', gpu)                   # e.g. 'MIG 3g.20gb' -> 20 GB slice
+if mig:
+    VRAM = int(mig[0])
+else:                                                          # full GPU: ask nvidia-smi for its memory
+    try:
+        q = subprocess.run(['nvidia-smi', '--query-gpu=memory.total', '--format=csv,noheader,nounits'],
+                           stdout=subprocess.PIPE, universal_newlines=True).stdout.split()
+        VRAM = int(int(q[0]) / 1024)
+    except Exception:
+        VRAM = 40
+# the 27B coder needs ~17 GB + ~2 GB per parallel request
+PAR, GEN_WORKERS, CODE_WORKERS = (1, 2, 1) if VRAM <= 20 else (2, 3, 2) if VRAM <= 30 else (4, 4, 3)
+print(f'GPU memory for us: ~{VRAM} GB ({"MIG slice" if mig else "full GPU"}) | parallel requests: {PAR}')
 """)
 code(r"""
 def free_port():
